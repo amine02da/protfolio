@@ -1,0 +1,55 @@
+DELIMITER //
+CREATE Procedure Q1(out msg varchar(30))
+BEGIN
+DECLARE montant float;
+set montant = (select sum(PUArt*QteCommandee) from Commande C join lignecommande lc 
+            on c.NumCom=Lc.NumCom join article a on a.NumArt=lc.NumArt WHERE C.NumCom=2
+);
+if montant <= 100000 then 
+set msg = "Commande Normale";
+else 
+set msg = "Commande Spéciale";
+end if;
+end//
+DELIMITER;
+
+call Q1(@msg);
+
+SELECT @msg;
+
+
+DELIMITER // 
+CREATE PROCEDURE Q2()
+BEGIN
+DECLARE Qte float;
+set Qte = (select QteCommandee from lignecommande WHERE NumCom = 5 and NumArt = 8);
+DELETE from lignecommande where NumCom = 5 and NumArt = 8;
+update article set QteEnStock = QteEnStock + Qte WHERE NumArt = 8;
+if NOT EXISTS(select NumCom from lignecommande where NumCom = 5)
+DELETE FROM commande Where NumCom = 5;
+end //
+DELIMITER;
+
+DELIMITER $$
+CREATE Procedure Q3()
+BEGIN
+SELECT c.NumCom,DateCom,SUM(PUArt*QteCommandee),
+case "type"
+WHEN SUM(PUArt*QteCommandee)<=100000 THEN "Cmd Normale"
+else "cmd Spéciale"
+end from Commande c ,Article A ,lignecommande lc
+where c.NumCom=lc.NumCom and lc.NumArt = A.NumArt GROUP BY c.NumCom,DateCom;
+end $$
+DELIMITER;
+
+DELIMITER $$
+CREATE Procedure Q4()
+BEGIN
+Create Table T1 (NumCom int, DatCom DateTime, MontantCom decimal) ;
+Insert  into  T1  Select  Top  5  C.NumCom,  DatCom,  Sum(PUArt*QteCommandee)  as 
+Mt  From Commande C, Article A, LigneCommande LC 
+Where C.NumCom=LC.NumCom and LC.NumArt=A.NumArt ;
+Group by C.NumCom, DatCom ;
+Order by Mt Desc ;
+end $$
+DELIMITER;
