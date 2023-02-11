@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/protfolio.git/static/css/main.19ae4891.css",
+    "main.js": "/protfolio.git/static/js/main.621fc6e3.js",
+    "static/media/i3.webp": "/protfolio.git/static/media/i3.fb5c0a6ce8f33418c59d.webp",
+    "static/media/i1.webp": "/protfolio.git/static/media/i1.04f4599c1371545e940a.webp",
+    "static/media/i2.webp": "/protfolio.git/static/media/i2.883c3d23f476eea79499.webp",
+    "static/media/i4.webp": "/protfolio.git/static/media/i4.c58d37d518e9d758ae93.webp",
+    "static/media/i5.webp": "/protfolio.git/static/media/i5.7e800bde40d75aab3240.webp",
+    "static/media/.i6.webp": "/protfolio.git/static/media/.i6.8f38b09731a61e3f9eb8.webp",
+    "static/media/me.jpg": "/protfolio.git/static/media/me.1734ede9c26133deed51.jpg",
+    "static/media/mee.png": "/protfolio.git/static/media/mee.ae0637e278483b165d61.png",
+    "index.html": "/protfolio.git/index.html",
+    "static/media/cv.txt": "/protfolio.git/static/media/cv.a69dbac8451c430a1c25.txt",
+    "main.19ae4891.css.map": "/protfolio.git/static/css/main.19ae4891.css.map",
+    "main.621fc6e3.js.map": "/protfolio.git/static/js/main.621fc6e3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.19ae4891.css",
+    "static/js/main.621fc6e3.js"
+  ]
+}
